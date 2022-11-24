@@ -1,12 +1,12 @@
 
--- QUERY TO CREATE TABLE FROM CASE STUDY
+<!-- -- QUERY TO CREATE TABLE FROM CASE STUDY -->
 CREATE TABLE USERS (
 	ID INT(5) PRIMARY KEY AUTO_INCREMENT UNIQUE,
 	UserName VARCHAR(50) NOT NULL UNIQUE,
 	Parent INT(5) NOT NULL
 );
 
--- QUERY TO INSERT VALUE TO TABLE BASED ON CASE STUDY
+<!-- -- QUERY TO INSERT VALUE TO TABLE BASED ON CASE STUDY -->
 INSERT INTO users (UserName,Parent) VALUES("Ali",2);
 INSERT INTO users (UserName,Parent) VALUES("Budi",0);
 INSERT INTO users (UserName,Parent) VALUES("Cecep",1);
@@ -14,7 +14,7 @@ INSERT INTO users (UserName,Parent) VALUES("Cecep",1);
 
 
 
--- QUERY TO GET RESULT EXPECTED FROM CASE STUDY 
+<!-- -- QUERY TO GET RESULT EXPECTED FROM CASE STUDY  -->
 SELECT
 	child.ID as ID,
 	child.UserName as username,
@@ -25,7 +25,7 @@ JOIN users parent
 ORDER BY child.ID;
 
 
--- RESULT FROM ABOVE QUERY, try executing above query in database manager query tab
+<!-- -- RESULT FROM ABOVE QUERY, try executing above query in database manager query tab -->
 
 -- ID | UserName | ParentUserName
 -- 1  | Ali      |  Budi 
@@ -33,7 +33,7 @@ ORDER BY child.ID;
 
 
 
--- DECISION ON WHICH COLUMN TO BE INDEXED
+<!-- -- DECISION ON WHICH COLUMN TO BE INDEXED -->
 
  BASED ON BEST PRACTICE GUIDELINE FROM ORACLE ON CHOOSING THE RIGHT TABLE TO CREATE INDEX
 	-- if you frequently want to retrieve less than about 15% of the rows in a large table.
@@ -56,7 +56,7 @@ BASED ON THE ABOVE GUIDLINE AND CATEGORY
 	 is greate column candidate to create an index, since it has either unique value or have few duplication, also have null or 0 value to it, not a primary key, and required frequent retrieve from the query as the table size grow
 
 
--- INDEX FOR users.Parent column
+<!-- -- INDEX FOR users.Parent column -->
 
 CREATE INDEX idx_parent
 on users (Parent);
