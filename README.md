@@ -73,3 +73,7 @@ BASED ON THE ABOVE GUIDLINE AND CATEGORY
 
 ``CREATE INDEX idx_parent
 on users (Parent);``
+
+### TEST RESULT
+
+![alt text](./RESULT.png)
